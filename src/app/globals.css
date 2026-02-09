@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal: #5FB8AD;
+  --color-teal-dark: #4A9A90;
+  --color-orange: #D4874D;
+  --color-orange-dark: #B8713A;
+  --color-cream: #F5F1EB;
+  --color-cream-dark: #E8E1D6;
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+}
+
+body {
+  background-color: var(--color-cream);
+}

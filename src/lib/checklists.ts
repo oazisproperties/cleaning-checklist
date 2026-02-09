@@ -1,0 +1,430 @@
+export type ChecklistSection = {
+  name: string;
+  items: string[];
+};
+
+export type PropertyChecklist = {
+  slug: string;
+  name: string;
+  sections: ChecklistSection[];
+};
+
+export const checklists: PropertyChecklist[] = [
+  {
+    slug: "canyon-view",
+    name: "Canyon View",
+    sections: [
+      {
+        name: "Products/Methods",
+        items: [
+          "For mirrors/glass - use either vinegar water or Windex/glass cleaner",
+          "For granite countertops - use soapy water or water and ecloths",
+          "For toilets - use Virex or Scrub 'n Bubbles/general disinfectant",
+          "For showers/tile - use soapy water",
+          "For extra soap scum build up - use Kaboom/grout and tile cleaner",
+          "For floors - use water with a few drops of the 100ss",
+        ],
+      },
+      {
+        name: "General",
+        items: [
+          "Put bath mats in dryer on air fluff",
+          "Check dryer lint trap and empty",
+          "Strip both beds",
+          "Place dirty linens in laundry bag(s)",
+          "Dust (duster is in the coat closet): Bath 1 countertop",
+          "Dust: King headboard and nightstands",
+          "Dust: Bedroom TV cabinet",
+          "Dust: Living room TV cabinet",
+          "Dust: Coffee table and end table",
+          "Dust: Hutch",
+          "Dust: Bed 2 desk and nightstand",
+          "Empty all garbage cans and recycling",
+          "One garbage bag set up in trash with additional 3-4 bags in bottom of can",
+          "No bag in recycling can",
+          "Make sure outlet in Bed 1 closet has a green light on. If not, go to Bath 2 & hit the reset button on GFCI outlet next to sink.",
+        ],
+      },
+      {
+        name: "Kitchen",
+        items: [
+          "Wipe down front of refrigerator (including inside of handles)",
+          "Clean water tray on refrigerator",
+          "Clean inside of refrigerator with Vinegar water",
+          "Check expiration dates on condiments",
+          "Check for spills/dirt & wipe out freezer",
+          "Empty dishwasher & dish rack",
+          "Wipe down front of dishwasher",
+          "Wipe down dish rack",
+          "Wipe down microwave",
+          "Clean toaster oven",
+          "Clean oven & stove top",
+          "Wipe down knife block",
+          "Wipe down coffee maker and open lid",
+          "Wipe cabinet doors/handles",
+          "Clean glass cabinet doors & backsplash",
+          "Wipe down outside of snack mix jar",
+          "Clean kitchen window & blinds",
+          "Wipe down sink",
+          "Clean countertops with soapy water",
+        ],
+      },
+      {
+        name: "Bath 1",
+        items: [
+          "Clean wall mirror, vanity, and makeup mirror",
+          "Clean countertop and sink (with soapy water, squeegee excess water into sink)",
+          "Clean shower (inside and door) with Vinegar water",
+          "Clean toilet",
+          "Hang new towels (big towel in toilet room, hand towel hanging next to sink, 1 makeup washcloth on the counter)",
+          "Leave backup towels in linen cupboard, 3 big, 1 hand, 4 washcloths",
+        ],
+      },
+      {
+        name: "Bath 2",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean sink with soapy water",
+          "Clean shower with Vinegar water",
+          "Clean toilet",
+          "Hang new towels (big towel across from toilet, hand towel next to sink, makeup washcloth in cabinet)",
+          "Leave backup towels in closet, 3 big, 1 hand, 4 washcloths",
+        ],
+      },
+      {
+        name: "Vacuum",
+        items: [
+          "Vacuum all floors and carpets (same backpack vacuum head can be used)",
+          "Check couch and chairs for hair and crumbles, vacuum if needed using backpack vacuum furniture head",
+        ],
+      },
+      {
+        name: "Re-set",
+        items: [
+          "Put clean linens on bed 1",
+          "Use lint roller to remove hair",
+          "Put clean linens on bed 2",
+          "Use lint roller to remove hair",
+          "Hang clean kitchen towel on oven and oven mitt next to coffee pot",
+          "Dining table (4 placemats in middle with fake plant centered on top)",
+          "Pillows on couch and chairs",
+        ],
+      },
+      {
+        name: "Refill/Replenish",
+        items: [
+          "Treat jar",
+          "Other can bagless for recycling",
+          "Hand soap in kitchen and both baths (if low)",
+          "Dish soap (if low)",
+          "Mop floors",
+          "Write note for next guest",
+        ],
+      },
+      {
+        name: "Additional Tasks If Time Allows",
+        items: [
+          "Dust all blinds",
+          "Clean all mirrors, patio windows & closet doors",
+          "Check for and clean cobwebs around front door",
+          "Wipe down table on back patio",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "diamond",
+    name: "Diamond",
+    sections: [
+      {
+        name: "Products/Methods",
+        items: [
+          "For mirrors/glass - use either vinegar water or Windex/glass cleaner",
+          "For granite countertops - use soapy water or water and ecloths",
+          "For toilets - use Virex or Scrub 'n Bubbles/general disinfectant",
+          "For showers/tile - use soapy water",
+          "For extra soap scum build up - use Kaboom/grout and tile cleaner",
+          "When using Sebo Vacuum, carpet attachment setting is 1 for all carpets except rug in Bed 1 and Front door rug (setting 4 for those two)",
+          "For floors - use water with a few drops of the 100ss",
+          "If the house has an aroma, turn on all of the scentsy candle warmers and grab some plug-ins from the garage closet to put in outlets around the house",
+        ],
+      },
+      {
+        name: "Kitchen",
+        items: [
+          "Clean inside of refrigerator",
+          "Check for expiration dates (condiments, creamers, etc.)",
+          "Wipe down front of refrigerator (including inside of handles)",
+          "Clean water tray on refrigerator",
+          "Check for spills/dirt & wipe out freezer",
+          "Wipe down Vitamix and KitchenAid",
+          "Empty dishwasher & dish rack",
+          "Wipe down front of dishwasher",
+          "Wipe down dish rack",
+          "Wipe down microwave",
+          "Clean toaster oven",
+          "Clean oven",
+          "Clean stove top grates & wipe down stainless cooktop",
+          "Wipe down coffee maker (open lid to dry out)",
+          "Restock coffee grounds & restock basket",
+          "Refill Keurig water tank",
+          "Restock coffee in backup cabinet",
+          "Clean kitchen window & blinds",
+          "Wipe down sink & make sure garbage disposal turns on at sink button",
+          "Clean countertops",
+          "Wipe down knife block",
+          "Hang clean kitchen towel on oven",
+          "Wipe cabinet doors/handles",
+          "Clean glass cabinet doors",
+          "Wipe down outside of treat jars",
+          "Refill treat jars",
+          "Wipe down garbage can",
+          "Replenish bags in bottom of garbage and recycling cans (leave 3-4 bags)",
+          "Wipe down front and lid of recycling can",
+          "Refill hand soap",
+          "Refill dish soap",
+          "Reset dining table",
+          "Top off JetDry in dishwasher",
+          "Write note for next guest",
+        ],
+      },
+      {
+        name: "Miscellaneous",
+        items: [
+          "Check behind all doors for things hanging",
+          "Clean all mirrors, patio windows & closet doors",
+          "Re-set pillows on both couches",
+          "Check dryer and laundry room countertop & fold laundry as needed",
+          "Check dryer lint trap and empty",
+          "Refill hand soap in all bathrooms",
+          "Restock toilet paper in all baths - 4 rolls",
+        ],
+      },
+      {
+        name: "½ Bath",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean countertop and sink",
+          "Clean toilet",
+        ],
+      },
+      {
+        name: "Bath 1",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Hang new towels - 1 hand towel on front of towel rack, 1 washcloth on back of rack, 1 makeup washcloth on the counter",
+          "Leave backup towels in linen closet - 3 big, 1 hand, 4 washcloths",
+          "Leave bath mat across the shower threshold",
+        ],
+      },
+      {
+        name: "Bath 2",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Hang new towels - 1 hand towel next to sink and 1 makeup towel on counter",
+          "Leave new towels on rack - 4 big, 1 hand towel, 4 washcloths",
+        ],
+      },
+      {
+        name: "Bath 3",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Hang new towels - 1 hand towel next to sink and 1 makeup towel on counter, 1 big towel on bar",
+          "Leave backup towels in closet - 3 big, 1 hand, 4 washcloths",
+        ],
+      },
+      {
+        name: "Bath 4",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Hang new towels - 1 hand towel next to sink and 1 makeup towel on counter",
+          "Leave towels on shelf - 2 big, 1 hand, 4 washcloths",
+          "Leave towels in closet - 2 big, 1 hand, a few washcloths",
+        ],
+      },
+      {
+        name: "Bath 5",
+        items: [
+          "Clean wall mirror and vanity",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Hang new towels - 1 hand towel next to sink and 1 makeup towel on counter",
+          "Leave towels on shelf - 2 big, 1 hand, 4 washcloths",
+          "Leave towels in closet - 2 big, 1 hand, a few washcloths",
+        ],
+      },
+      {
+        name: "Bedrooms",
+        items: [
+          "Make beds - linens can be found in the closet in the garage",
+        ],
+      },
+      {
+        name: "Quick Checks and Inform R&D",
+        items: [
+          "Check if front entryway needs to be swept",
+          "Check if grill needs cleaning",
+        ],
+      },
+      {
+        name: "Additional Tasks If Time Allows",
+        items: [
+          "Use lint roller to remove hair",
+          "Put dirty rags in garage by man door (so not sitting on tile in house)",
+          "Magic eraser spots on walls & doors as needed",
+          "Dust all blinds",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "panorama",
+    name: "Panorama",
+    sections: [
+      {
+        name: "Products/Methods",
+        items: [
+          "For mirrors/glass - use either vinegar water or Windex/glass cleaner",
+          "For granite countertops - use soapy water or water and ecloths",
+          "For toilets - use Virex or Scrub 'n Bubbles/general disinfectant",
+          "For showers/tile - use soapy water",
+          "For extra soap scum build up - use Kaboom/grout and tile cleaner",
+          "When using Sebo Vacuum, carpet attachment setting is 1 for all rugs",
+          "For floors - use water with a few drops of the 100ss",
+        ],
+      },
+      {
+        name: "Kitchen",
+        items: [
+          "Clean inside of refrigerator",
+          "Check for expiration dates (condiments, creamers, etc.)",
+          "Wipe down front of refrigerator (including inside of handles)",
+          "Wipe down water station",
+          "Check for spills/dirt & wipe out freezer",
+          "Wipe down spice rack and knife block",
+          "Empty dishwasher",
+          "Wipe down front of dishwasher",
+          "Wipe down microwave",
+          "Clean oven",
+          "Clean stove top",
+          "Wipe down coffee maker (open lid to dry out)",
+          "Restock coffee grounds & restock basket",
+          "Clean kitchen window",
+          "Wipe down sink",
+          "Clean countertops",
+          "Wipe down knife block",
+          "Hang clean kitchen towel on oven",
+          "Wipe cabinet doors/handles",
+          "Wipe down outside of treat jars",
+          "Refill treat jars",
+          "Wipe down garbage can",
+          "Replenish bags in bottom of garbage and recycling cans (leave 3-4 bags)",
+          "Wipe down front and lid of recycling can",
+          "Refill hand soap",
+          "Refill dish soap",
+          "Reset dining table",
+          "Top off JetDry in dishwasher",
+          "Write note for next guest",
+        ],
+      },
+      {
+        name: "Miscellaneous",
+        items: [
+          "Clean all mirrors, windows & closet doors",
+          "Re-set pillows on couch",
+          "Check dryer and fold laundry as needed",
+          "Check dryer lint trap and empty",
+          "Refill hand soap in all bathrooms",
+          "Restock toilet paper in all baths - 4 rolls",
+        ],
+      },
+      {
+        name: "Bath 1",
+        items: [
+          "Clean vanity mirror",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Leave 1 hand towel on towel rack and 1 makeup washcloth on the counter",
+          "Leave towels under vanity - 4 big, 1 hand, 4 washcloths",
+          "Leave bath mat under vanity",
+        ],
+      },
+      {
+        name: "Bath 2/3",
+        items: [
+          "Clean vanity mirror",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Leave 1 hand towel on towel rack and 1 makeup washcloth on the counter",
+          "Leave towels in hall closet - 8 big, 2 hand towel, 8 washcloths",
+          "Leave bath mat across tub",
+        ],
+      },
+      {
+        name: "Bath 4",
+        items: [
+          "Clean vanity mirror",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Leave 1 hand towel rolled on countertop and 1 makeup washcloth on the counter",
+          "Leave towels in closet - 4 big, 1 hand, 4 washcloths",
+          "Leave bath mat across shower threshold",
+        ],
+      },
+      {
+        name: "Bath 5",
+        items: [
+          "Clean vanity mirror",
+          "Clean countertop and sink",
+          "Clean toilet",
+          "Clean shower",
+          "Hang 1 hand towel next to sink and 1 makeup towel on counter",
+          "Leave towels under sink - 2 big, 1 hand, 4 washcloths",
+          "Leave towels in closet - 2 big, 1 hand, a few washcloths",
+          "Leave bath mat across tub",
+        ],
+      },
+      {
+        name: "Bedrooms",
+        items: [
+          "Make beds",
+          "Use lint roller to remove hair",
+        ],
+      },
+      {
+        name: "Quick Checks and Inform R&D",
+        items: [
+          "Check if front entryway needs to be swept",
+          "Check if grill needs cleaning",
+          "Check if pool cover is on",
+        ],
+      },
+      {
+        name: "Additional Tasks If Time Allows",
+        items: [
+          "Magic eraser spots on walls & doors as needed",
+        ],
+      },
+    ],
+  },
+];
+
+export function getChecklist(slug: string): PropertyChecklist | undefined {
+  return checklists.find((c) => c.slug === slug);
+}
