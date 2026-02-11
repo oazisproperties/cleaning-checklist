@@ -133,7 +133,7 @@ export default function ChecklistPage() {
             const sectionChecked = checked[section.name] || new Set();
             const doneCount = sectionChecked.size;
             const totalCount = section.items.length;
-            const isCollapsed = collapsed[section.name] ?? false;
+            const isCollapsed = collapsed[section.name] ?? true;
             const allDone = doneCount === totalCount;
 
             return (

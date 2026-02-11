@@ -34,6 +34,15 @@ export async function POST(request: Request) {
       minute: "2-digit",
     });
 
+    // Sort sections: incomplete first, then completed
+    const incompleteSections = sections.filter(
+      (s) => s.items.some((i) => !i.done)
+    );
+    const completedSections = sections.filter(
+      (s) => s.items.every((i) => i.done)
+    );
+    const sortedSections = [...incompleteSections, ...completedSections];
+
     // Build HTML email
     let html = `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -42,7 +51,7 @@ export async function POST(request: Request) {
         <hr style="border: none; border-top: 1px solid #E8E1D6; margin: 16px 0;" />
     `;
 
-    for (const section of sections) {
+    for (const section of sortedSections) {
       const doneCount = section.items.filter((i) => i.done).length;
       const totalCount = section.items.length;
       const allDone = doneCount === totalCount;
@@ -83,16 +92,20 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    const { error } = await resend.emails.send({
-      from: "oAZis Properties <onboarding@resend.dev>",
-      to: "admin@oazisproperties.com",
-      subject: `Cleaning Complete — ${property} (${dateStr})`,
-      html,
-    });
+    // Send email and Slack notification in parallel
+    const [emailResult] = await Promise.all([
+      resend.emails.send({
+        from: "oAZis Properties <onboarding@resend.dev>",
+        to: "admin@oazisproperties.com",
+        subject: `Cleaning Complete — ${property} (${dateStr})`,
+        html,
+      }),
+      sendSlackNotification(property, dateStr, timeStr, sections, totalDone, totalItems),
+    ]);
 
-    if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+    if (emailResult.error) {
+      console.error("Resend error:", emailResult.error);
+      return NextResponse.json({ error: emailResult.error.message }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });
@@ -100,5 +113,75 @@ export async function POST(request: Request) {
     const message = error instanceof Error ? error.message : String(error);
     console.error("Submit error:", error);
     return NextResponse.json({ error: message }, { status: 500 });
+  }
+}
+
+async function sendSlackNotification(
+  property: string,
+  dateStr: string,
+  timeStr: string,
+  sections: SectionData[],
+  totalDone: number,
+  totalItems: number
+) {
+  const webhookUrl = process.env.SLACK_WEBHOOK_URL;
+  if (!webhookUrl) {
+    console.warn("SLACK_WEBHOOK_URL not configured, skipping Slack notification");
+    return;
+  }
+
+  const allDone = totalDone === totalItems;
+  const missedItems = sections.flatMap((s) =>
+    s.items.filter((i) => !i.done).map((i) => `• ${s.name}: ${i.text}`)
+  );
+  const notesEntries = sections
+    .filter((s) => s.notes)
+    .map((s) => `*${s.name}:* ${s.notes}`);
+
+  const blocks: Record<string, unknown>[] = [
+    {
+      type: "header",
+      text: { type: "plain_text", text: `Cleaning Complete — ${property}` },
+    },
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*${totalDone}/${totalItems}* items completed  •  ${dateStr} at ${timeStr}`,
+      },
+    },
+  ];
+
+  if (!allDone) {
+    blocks.push({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*Incomplete items:*\n${missedItems.slice(0, 20).join("\n")}${missedItems.length > 20 ? `\n_...and ${missedItems.length - 20} more_` : ""}`,
+      },
+    });
+  }
+
+  if (notesEntries.length > 0) {
+    blocks.push({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*Notes:*\n${notesEntries.join("\n")}`,
+      },
+    });
+  }
+
+  try {
+    const res = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ blocks }),
+    });
+    if (!res.ok) {
+      console.error("Slack notification failed:", res.status);
+    }
+  } catch (err) {
+    console.error("Slack notification error:", err);
   }
 }
